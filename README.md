@@ -1,2 +1,3 @@
 # envelope-pattern
-create envelope patterns
+Creates envelope patterns
+
