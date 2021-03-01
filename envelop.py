@@ -35,12 +35,6 @@ class Envelope:
         for item in range(len(M1)):
             draw_line(M1[item], M2[item], color)
 
-    def draw_line(self, point1, point2, color):
-        """Draws a line between two given points."""
-        plt.axis('scaled')
-        plt.plot((point1[0], point2[0]),\
-                (point1[1], point2[1]), color=color)
-
     def create_margin(self, end1, end2):
         """Segment a given line specified by end points."""
         xmargin = np.linspace(end1[0], end2[0], self.segments+1)
