@@ -24,16 +24,16 @@ class Envelope:
         margin1 and margin2 are two sides of the polygon.
         eg: a square can have margins 1, 2, 3 or 4.
         Sides are numbered sequentially, starting from a arbitrary edge."""
-        side11 = margin1%self.numSides
-        side12 = (margin1-1)%self.numSides
-        side21 = margin2%self.numSides
-        side22 = (margin2-1)%self.numSides
+        side11 = margin1 % self.numSides
+        side12 = (margin1-1) % self.numSides
+        side21 = margin2 % self.numSides
+        side22 = (margin2-1) % self.numSides
         M1 = self.create_margin(self.poly[side11], self.poly[side12])
         M2 = self.create_margin(self.poly[side21], self.poly[side22])
         if reverse:
             M1 = np.flipud(M1)
         for item in range(len(M1)):
-            self.draw_line(M1[item], M2[item], color)
+            draw_line(M1[item], M2[item], color)
 
     def draw_line(self, point1, point2, color):
         """Draws a line between two given points."""
@@ -70,3 +70,9 @@ class Envelope:
                              + self.ypoly * np.cos(rot_ang)
         self.poly = np.column_stack([xrot, yrot])
         #return self.poly
+
+def draw_line(point1, point2, color):
+    """Draws a line between two given points."""
+    plt.axis('scaled')
+    plt.plot((point1[0], point2[0]),\
+            (point1[1], point2[1]), color=color)
